@@ -14,6 +14,14 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+  
+  plugins: [
+    { src: '~/plugins/nuxt-swiper-plugin.js', ssr: false }
+  ],
+
+  css: [
+    'swiper/dist/css/swiper.css'
+  ],
   /*
   ** Customize the progress bar color
   */
