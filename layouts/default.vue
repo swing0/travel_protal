@@ -16,8 +16,8 @@
             <router-link to="/scenic" tag="li" active-class="current">
               <a>景区</a>
             </router-link>
-            <router-link to="/admin" tag="li" active-class="current">
-              <a>管理员</a>
+            <router-link to="/spot" tag="li" active-class="current">
+              <a>景点</a>
             </router-link>
             <router-link to="/article" tag="li" active-class="current">
               <a>文章</a>
