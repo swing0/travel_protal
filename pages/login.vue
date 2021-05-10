@@ -43,6 +43,8 @@
 <script>
   import '~/assets/css/sign.css'
   import '~/assets/css/iconfont.css'
+  import cookie from 'js-cookie'
+  import loginApi from '@/api/login'
 
 
   export default {
@@ -59,7 +61,24 @@
     },
 
     methods: {
-      
+      //登录的方法
+      submitLogin(){
+        loginApi.submitLoginUser(this.user)
+          .then(response => {
+            //将token放到cookie中
+            cookie.set('travel_token',response.data.data.token,{ domain: 'localhost' }) 
+
+            //根据token获取用户信息
+            loginApi.getLoginUserInfo()
+              .then(response => {
+                this.loginInfo = response.data.data.userInfo
+                //获取返回的用户信息,放到cookie中
+                cookie.set('travel_ucenter',this.loginInfo,{ domain: 'localhost' }) 
+              })
+            //跳转页面
+            window.location.href = "/";
+          })
+      },
 
       checkPhone (rule, value, callback) {
         //debugger
