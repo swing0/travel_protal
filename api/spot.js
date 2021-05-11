@@ -6,5 +6,12 @@ export default {
         url: `/scenicservice/spotfront/getSpotFrontList/${page}/${limit}`,
         method: 'get'
       })
+    },
+    //景点详情
+    getSpotInfo(id){
+      return request({
+        url: `/scenicservice/spot/getSpotFrontInfo/${id}`,
+        method: 'get'
+      })
     }
   }

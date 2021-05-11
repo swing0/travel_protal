@@ -26,12 +26,12 @@
               <li v-for="spot in data.items" :key="spot.id">
                 <section class="i-teach-wrap">
                   <div class="i-teach-pic">
-                    <a href="/admin/1" :title="spot.title" target="_blank">
+                    <a :href="'/spot/'+spot.id" :title="spot.title" target="_blank">
                       <img src="~/assets/photo/teacher/1442297885942.jpg" alt>
                     </a>
                   </div>
                   <div class="mt10 hLh30 txtOf tac">
-                    <a href="/admin/1" :title="spot.title" target="_blank" class="fsize18 c-666">{{spot.title}}</a>
+                    <a :href="'/spot/'+spot.id" :title="spot.title" target="_blank" class="fsize18 c-666">{{spot.title}}</a>
                   </div>
                   <div class="hLh30 txtOf tac">
                     <span class="fsize14 c-999">{{spot.title}}</span>
