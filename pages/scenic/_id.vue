@@ -107,7 +107,7 @@
                             </a>
                             <ol class="lh-menu-ol" style="display: block;">
                               <li class="lh-menu-second ml30" v-for="video in spot.children" :key="video.id">
-                                <a href="#" title>
+                                <a :href="'/player/'+video.videoSourceId" target="_blank">
                                   <span class="fr">
                                     <i class="free-icon vam mr10">观赏视频</i>
                                   </span>
