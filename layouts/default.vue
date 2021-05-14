@@ -4,8 +4,8 @@
     <header id="header">
       <section class="container">
         <h1 id="logo">
-          <a href="#" title="谷粒学院">
-            <img src="~/assets/img/logo.png" width="100%" alt="谷粒学院">
+          <a href="#" title="青空旅游">
+            <img src="~/assets/img/logo.png" width="100%" alt="青空旅游">
           </a>
         </h1>
         <div class="h-r-nsl">
@@ -62,7 +62,7 @@
           <aside class="h-r-search">
             <form action="#" method="post">
               <label class="h-r-s-box">
-                <input type="text" placeholder="输入你想学的课程" name="queryCourse.courseName" value>
+                <input type="text" placeholder="输入你想去的景区" name="queryCourse.courseName" value>
                 <button type="submit" class="s-btn">
                   <em class="icon18">&nbsp;</em>
                 </button>
@@ -89,7 +89,7 @@
           </h4>
           <ul class="of flink-list">
             <li>
-              <a href="http://www.atguigu.com/" title="尚硅谷" target="_blank">尚硅谷</a>
+              <a href="http://www.cntour.cn/" title="尚硅谷" target="_blank">中国旅游网</a>
             </li>
           </ul>
           <div class="clear"></div>
@@ -102,11 +102,10 @@
                 <a href="#" title="联系我们" target="_blank">联系我们</a>|
                 <a href="#" title="帮助中心" target="_blank">帮助中心</a>|
                 <a href="#" title="资源下载" target="_blank">资源下载</a>|
-                <span>服务热线：010-56253825(北京) 0755-85293825(深圳)</span>
-                <span>Email：info@atguigu.com</span>
+                <span>联系方式：17839959596</span>
+                <span>Email：2821885813@qq.com</span>
               </section>
               <section class="b-f-link mt10">
-                <span>©2018课程版权均归谷粒学院所有 京ICP备17055252号</span>
               </section>
             </section>
           </section>

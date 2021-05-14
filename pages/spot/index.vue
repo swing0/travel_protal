@@ -7,7 +7,7 @@
           <span class="c-333">全部景点</span>
         </h2>
         <section class="c-tab-title">
-          <a id="subjectAll" title="全部" href="#">全部</a>
+          <a id="subjectAll" title="" href="#"></a>
           <!-- <c:forEach var="subject" items="${subjectList }">
                             <a id="${subject.subjectId}" title="${subject.subjectName }" href="javascript:void(0)" onclick="submitForm(${subject.subjectId})">${subject.subjectName }</a>
           </c:forEach>-->
@@ -25,19 +25,15 @@
             <ul class="of">
               <li v-for="spot in data.items" :key="spot.id">
                 <section class="i-teach-wrap">
-                  <div class="i-teach-pic">
+                  <div class="t-infor-pic">
                     <a :href="'/spot/'+spot.id" :title="spot.title" target="_blank">
                       <img src="~/assets/photo/teacher/1442297885942.jpg" alt>
                     </a>
                   </div>
-                  <div class="mt10 hLh30 txtOf tac">
-                    <a :href="'/spot/'+spot.id" :title="spot.title" target="_blank" class="fsize18 c-666">{{spot.title}}</a>
-                  </div>
-                  <div class="hLh30 txtOf tac">
-                    <span class="fsize14 c-999">{{spot.title}}</span>
-                  </div>
+                </section>
+                <section class="c-tab-title">
                   <div class="mt15 i-q-txt">
-                    <p class="c-999 f-fA">{{spot.title}}</p>
+                    <a :href="'/spot/'+spot.id" :title="spot.title" target="_blank" class="fsize18 c-666" >{{spot.title}}</a>
                   </div>
                 </section>
               </li>
@@ -83,12 +79,14 @@
         <!-- 公共分页 结束 -->
       </section>
     </section>
-    <!-- /讲师列表 结束 -->
+    <!-- /景点列表 结束 -->
   </div>
+  
 </template>
 
 <script>
 import spotApi from '@/api/spot.js'
+import vod from '@/api/vod'
 
 export default {
   asyncData({ params, error }) {
@@ -98,13 +96,47 @@ export default {
     });
   },
   methods:{
+    // data(){
+    //   return{
+    //     playAuth:''
+    //   }
+    // },
     //分页切换
     gotoPage(page){
       spotApi.getSpotList(page,8)
       .then(response => {
         this.data = response.data.data 
       })
-    }
-  }
+    },
+    // getVodInfo(vid){
+    //     vod.getPlayAuth(vid)
+    //       .then(response => {
+    //         this.playAuth = response.data.data.playAuth
+    //       })
+    // }
+  },
+  // mounted(){//页面渲染之后执行
+  //       new Aliplayer({
+  //           id: 'J_prismPlayer',
+  //           vid: this.vid, // 视频id
+  //           playauth: this.playAuth, // 播放凭证
+  //           encryptType: '1', // 如果播放加密视频，则需设置encryptType=1，非加密视频无需设置此项
+  //           width: '100%',
+  //           height: '500px',
+  //           // 以下可选设置
+  //           cover: '', // 封面
+  //           qualitySort: 'asc', // 清晰度排序
+
+  //           mediaType: 'video', // 返回音频还是视频
+  //           autoplay: false, // 自动播放
+  //           isLive: false, // 直播
+  //           rePlay: false, // 循环播放
+  //           preload: true,
+  //           controlBarVisibility: 'hover', // 控制条的显示方式：鼠标悬停
+  //           useH5Prism: true, // 播放器类型：html5
+  //       }, function(player) {
+  //           console.log('播放器创建成功')
+  //       })
+  //   }
 };
 </script>

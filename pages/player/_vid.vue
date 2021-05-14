@@ -8,7 +8,7 @@
 
     <!-- 定义播放器dom -->
     <div id="J_prismPlayer" class="prism-player" />
-  </div>
+    </div>
 </template>
 <script>
 import vod from '@/api/vod'
@@ -31,7 +31,7 @@ export default {
             width: '100%',
             height: '500px',
             // 以下可选设置
-            cover: 'http://guli.shop/photo/banner/1525939573202.jpg', // 封面
+            cover: '', // 封面
             qualitySort: 'asc', // 清晰度排序
 
             mediaType: 'video', // 返回音频还是视频

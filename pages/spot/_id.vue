@@ -1,14 +1,14 @@
 <template>
   <div id="aCoursesList" class="bg-fa of">
-    <!-- 讲师介绍 开始 -->
+    <!-- 景点介绍 开始 -->
     <section class="container">
       <header class="comm-title">
         <h2 class="fl tac">
-          <span class="c-333">讲师介绍</span>
+          <span class="c-333">景点介绍</span>
         </h2>
       </header>
       <div class="t-infor-wrap">
-        <!-- 讲师基本信息 -->
+        <!-- 景点基本信息 -->
         <section class="fl t-infor-box c-desc-content">
           <div class="mt20 ml20">
             <section class="t-infor-pic">
@@ -17,14 +17,14 @@
             <h3 class="hLh30">
               <span class="fsize24 c-333">{{spot.title}}</span>
             </h3>
-            <section class="mt10">
+            <!-- <section class="mt10">
               <span class="t-tag-bg">{{spot.title}}</span>
             </section>
             <section class="t-infor-txt">
               <p
                 class="mt20"
               >{{spot.title}}</p>
-            </section>
+            </section> -->
             <div class="clear"></div>
           </div>
         </section>
@@ -53,11 +53,11 @@
                   <section class="course-img">
                     <img :src="scenic.cover" class="img-responsive" >
                     <div class="cc-mask">
-                      <a href="#" title="查看景区" target="_blank" class="comm-btn c-btn-1">查看景区</a>
+                      <a :href="'/scenic/'+scenic.id" title="查看景区" target="_blank" class="comm-btn c-btn-1">查看景区</a>
                     </div>
                   </section>
                   <h3 class="hLh30 txtOf mt10">
-                    <a href="#" :title="scenic.title" target="_blank" class="course-title fsize18 c-333">{{scenic.title}}</a>
+                    <a :href="'/scenic/'+scenic.id" :title="scenic.title" target="_blank" class="course-title fsize18 c-333">{{scenic.title}}</a>
                   </h3>
                 </div>
               </li>
@@ -73,15 +73,25 @@
 </template>
 <script>
 import spotApi from '@/api/spot.js'
+import vod from '@/api/vod'
 export default {
-  asyncData({ params, error }) {
-    return spotApi.getSpotInfo(params.id)
-    .then(response => {
-      return { 
-        spot: response.data.data.spot,
-        scenic: response.data.data.scenic
-        }
-    });
+  data(){
+    return{
+      spot:{},
+      scenic:{}
+    }
   },
+  created(){
+    this.getSpot()
+  },
+  methods:{
+    getSpot(){
+      spotApi.getSpotInfo(this.$route.params.id)
+        .then(response => {
+          this.spot = response.data.data.spot,
+          this.scenic = response.data.data.scenic
+        })
+    }
+  }
 };
 </script>
