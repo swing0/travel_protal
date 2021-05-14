@@ -34,7 +34,7 @@
               </span>
             </section>
             <section class="c-attr-mt">
-              <a href="#" title="立即购买" class="comm-btn c-btn-3">立即购买</a>
+              <a @click="createOrders()" href="#" title="立即购买" class="comm-btn c-btn-3">立即购买</a>
             </section>
           </section>
         </aside>
@@ -156,15 +156,26 @@
 
 <script>
 import scenicApi from '@/api/scenic.js'
+import ordersApi from '@/api/order.js'
 export default {
   asyncData({ params, error }) {
     return scenicApi.getScenicInfo(params.id)
     .then(response => {
       return { 
         scenicWebVo: response.data.data.scenicWebVo,
-        spotVideoList: response.data.data.spotVideoList
+        spotVideoList: response.data.data.spotVideoList,
+        scenicId:params.id
         }
     });
   },
+  methods:{
+    createOrders(){
+        ordersApi.createOrders(this.scenicId)
+          .then(response => {
+            //生成订单后，跳转订单显示页面
+            this.$router.push({path:'/orders/' + response.data.data.orderId})
+          })
+    }
+  }
 };
 </script>
