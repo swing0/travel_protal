@@ -83,7 +83,7 @@
                   <section class="i-teach-wrap">
                     <div class="t-infor-pic">
                       <a :href="'/spot/'+spot.id" :title="spot.title">
-                        <img :alt="spot.title" src="~/assets/photo/teacher/1442297885942.jpg">
+                        <img :alt="spot.title" :src="spot.cover">
                       </a>
                     </div>
                   </section>

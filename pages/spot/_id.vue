@@ -11,20 +11,17 @@
         <!-- 景点基本信息 -->
         <section class="fl t-infor-box c-desc-content">
           <div class="mt20 ml20">
-            <section class="t-infor-pic">
-              <img src="~/assets/photo/teacher/1442297885942.jpg">
-            </section>
             <h3 class="hLh30">
               <span class="fsize24 c-333">{{spot.title}}</span>
             </h3>
-            <!-- <section class="mt10">
-              <span class="t-tag-bg">{{spot.title}}</span>
+            <section class="t-infor-pic">
+              <img width="50%" :src="spot.cover">
             </section>
             <section class="t-infor-txt">
               <p
                 class="mt20"
-              >{{spot.title}}</p>
-            </section> -->
+              >{{spot.content}}</p>
+            </section>
             <div class="clear"></div>
           </div>
         </section>
